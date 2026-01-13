@@ -23,17 +23,7 @@ If the WiFi connection is lost, the device continues to monitor and alert locall
     * Red LED + 220Ω Resistor
 * **Power:** USB Cable / 5V Power Bank
 * **Misc:** Breadboard, Jumper wires
-
-## Tutorial Source
-I am using the following tutorial as a starting point for the web server implementation:
-* *Reference:* [ESP32 Web Server with BME280/DHT11 - Random Nerd Tutorials](https://randomnerdtutorials.com/)
-
-### Changes from the Tutorial
-The original tutorial only displays sensor data on a webpage. I am extending this by:
-1.  **Adding State Logic:** Implementing a "Critical" vs "Normal" state machine with hysteresis.
-2.  **Local Failsafe:** Integrating an OLED screen and physical LED so the device works without internet.
-3.  **Non-blocking Code:** Rewriting the loop to avoid `delay()` so the physical button and network stack remain responsive simultaneously.
-
+  
 ---
 
 ## Course Requirements (Q&A)
