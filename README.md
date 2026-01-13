@@ -11,10 +11,10 @@ It is designed to be **network-resilient**:
 1.  **Local Mode:** It displays live status on an OLED screen and triggers a physical Red LED alarm if moisture drops below a critical threshold.
 2.  **Online Mode:** It hosts a lightweight web server (accessible via Smartphone/PC) to view current stats.
 
-[cite_start]If the WiFi connection is lost, the device continues to monitor and alert locally, avoiding the "Invisible Project" antipattern[cite: 423].
+If the WiFi connection is lost, the device continues to monitor and alert locally, avoiding the "Invisible Project" antipattern.
 
 ## BOM (Bill of Materials)
-* [cite_start]**Microcontroller:** ESP32 Development Board (e.g., WROOM-32) [cite: 167]
+* **Microcontroller:** ESP32 Development Board (e.g., WROOM-32)
 * **Sensors:**
     * Capacitive Soil Moisture Sensor v1.2
     * DHT22 (Temperature & Humidity Sensor)
@@ -42,19 +42,19 @@ The original tutorial only displays sensor data on a webpage. I am extending thi
 The **system** consists of the ESP32, the attached sensors, and the local actuators (LED/OLED). The **outside** world is the user's smartphone. [cite_start]The boundary is the HTTP request; the phone simply requests data, but the "smart" decision to trigger an alarm happens entirely **inside** the ESP32[cite: 341].
 
 ### Q2: Where does the intelligence live?
-The intelligence lives on the **ESP32**. It allows the device to smooth noisy sensor data and decide if the plant needs water. The phone is just a "dumb" display terminal. [cite_start]This prevents the "Distributed Intelligence" trap[cite: 349].
+The intelligence lives on the **ESP32**. It allows the device to smooth noisy sensor data and decide if the plant needs water. The phone is just a "dumb" display terminal. This prevents the "Distributed Intelligence" trap.
 
 ### Q3: What is the hardest technical problem?
-**Concurrency & Timing.** The ESP32 must maintain a WiFi connection and serve web pages (which can be slow) without blocking the sensor reading loop or freezing the physical UI. [cite_start]I will use `millis()` based timers (or FreeRTOS tasks) to ensure the system is responsive[cite: 164, 194].
+**Concurrency & Timing.** The ESP32 must maintain a WiFi connection and serve web pages (which can be slow) without blocking the sensor reading loop or freezing the physical UI. I will use `millis()` based timers (or FreeRTOS tasks) to ensure the system is responsive.
 
 ### Q4: What is the minimum demo?
-The **Offline Mode**. If I unplug the WiFi router, the device must still successfully read the soil moisture and light up the Red LED immediately when the sensor is removed from the water. [cite_start]This proves the system works independently of the network[cite: 371].
+The **Offline Mode**. If I unplug the WiFi router, the device must still successfully read the soil moisture and light up the Red LED immediately when the sensor is removed from the water. This proves the system works independently of the network.
 
 ### Q5: Why is this not just a tutorial?
-This project combines two distinct domains (Physical UI via I2C and Network UI via WiFi) that are usually taught separately. [cite_start]Furthermore, I am implementing **Hysteresis logic** for the alarm (e.g., turns ON at <30%, but only turns OFF at >40%) to prevent LED flickering, which requires custom decision logic beyond a simple copy-paste tutorial[cite: 382].
+This project combines two distinct domains (Physical UI via I2C and Network UI via WiFi) that are usually taught separately. Furthermore, I am implementing **Hysteresis logic** for the alarm (e.g., turns ON at <30%, but only turns OFF at >40%) to prevent LED flickering, which requires custom decision logic beyond a simple copy-paste tutorial.
 
 ---
 
 ## Hardware Requirement
 **Do I need an ESP32?**
-[cite_start]**Yes.** This project specifically requires WiFi connectivity to allow remote status checks via a smartphone, which is a key feature of the architecture[cite: 318].
+**Yes.** This project specifically requires WiFi connectivity to allow remote status checks via a smartphone, which is a key feature of the architecture.
