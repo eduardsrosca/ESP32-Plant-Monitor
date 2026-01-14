@@ -41,7 +41,7 @@ The intelligence lives on the **ESP32**. It allows the device to smooth noisy se
 The **Offline Mode**. If I unplug the WiFi router, the device must still successfully read the soil moisture and light up the Red LED immediately when the sensor is removed from the water. This proves the system works independently of the network.
 
 ### Q5: Why is this not just a tutorial?
-This project combines two distinct domains (Physical UI via I2C and Network UI via WiFi) that are usually taught separately. Furthermore, I am implementing **Hysteresis logic** for the alarm (e.g., turns ON at <30%, but only turns OFF at >40%) to prevent LED flickering, which requires custom decision logic beyond a simple copy-paste tutorial.
+This project combines two distinct domains (Physical UI via I2C and Network UI via WiFi) that are usually taught separately.
 
 ---
 
