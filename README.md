@@ -14,7 +14,7 @@ It is designed to be **network-resilient**:
 If the WiFi connection is lost, the device continues to monitor and alert locally, avoiding the "Invisible Project" antipattern.
 
 ## BOM (Bill of Materials)
-* **Microcontroller:** ESP32 Development Board (e.g., WROOM-32)
+* **Microcontroller:** ESP32 Development Board
 * **Sensors:**
     * Capacitive Soil Moisture Sensor v1.2
     * DHT22 (Temperature & Humidity Sensor)
