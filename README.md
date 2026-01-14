@@ -35,7 +35,7 @@ The **system** consists of the ESP32, the attached sensors, and the local actuat
 The intelligence lives on the **ESP32**. It allows the device to smooth noisy sensor data and decide if the plant needs water. The phone is just a display terminal.
 
 ### Q3: What is the hardest technical problem?
-**Concurrency & Timing.** The ESP32 must maintain a WiFi connection and serve web pages (which can be slow) without blocking the sensor reading loop or freezing the physical UI. I will use `millis()` based timers (or FreeRTOS tasks) to ensure the system is responsive.
+**Concurrency & Timing.** The ESP32 must maintain a WiFi connection and a server web page without blocking the sensor reading loop or freezing the physical UI. I will use `millis()` based timers to ensure the system is responsive.
 
 ### Q4: What is the minimum demo?
 The **Offline Mode**. If I unplug the WiFi router, the device must still successfully read the soil moisture and light up the Red LED immediately when the sensor is removed from the water. This proves the system works independently of the network.
