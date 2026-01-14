@@ -32,7 +32,7 @@ If the WiFi connection is lost, the device continues to monitor and alert locall
 The **system** consists of the ESP32, the attached sensors, and the local actuators (LED/OLED). The **outside** world is the user's smartphone. The boundary is the HTTP request; the phone simply requests data, but the "smart" decision to trigger an alarm happens entirely **inside** the ESP32.
 
 ### Q2: Where does the intelligence live?
-The intelligence lives on the **ESP32**. It allows the device to smooth noisy sensor data and decide if the plant needs water. The phone is just a "dumb" display terminal. This prevents the "Distributed Intelligence" trap.
+The intelligence lives on the **ESP32**. It allows the device to smooth noisy sensor data and decide if the plant needs water. The phone is just a display terminal. This prevents the "Distributed Intelligence" trap.
 
 ### Q3: What is the hardest technical problem?
 **Concurrency & Timing.** The ESP32 must maintain a WiFi connection and serve web pages (which can be slow) without blocking the sensor reading loop or freezing the physical UI. I will use `millis()` based timers (or FreeRTOS tasks) to ensure the system is responsive.
