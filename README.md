@@ -11,7 +11,7 @@ It is designed to be **network-resilient**:
 1.  **Local Mode:** It displays live status on an OLED screen and triggers a physical Red LED alarm if moisture drops below a critical threshold.
 2.  **Online Mode:** It hosts a lightweight web server (accessible via Smartphone/PC) to view current stats.
 
-If the WiFi connection is lost, the device continues to monitor and alert locally, avoiding the "Invisible Project" antipattern.
+If the WiFi connection is lost, the device continues to monitor and alert locally
 
 ## BOM (Bill of Materials)
 * **Microcontroller:** ESP32 Development Board
